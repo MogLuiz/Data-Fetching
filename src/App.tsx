@@ -7,36 +7,27 @@ type Repository = {
 };
 
 const App: React.FC = () => {
-  // -------------------------------------------------
-  // States
-  // -------------------------------------------------
 
-  const [repositories, setRepositories] = useState<Repository[]>([]);
 
-  // -------------------------------------------------
-  // Hooks
-  // -------------------------------------------------
+ 
 
-  useEffect(() => {
-    fetch("https://api.github.com/users/MogLuiz/repos")
-      .then((response) => response.json())
-      .then((data) => setRepositories(data));
-  }, []);
+
 
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
   return (
-    <ul>
-      {repositories.map((repo) => {
-        return (
-          <li key={repo.full_name}>
-            <strong>{repo.full_name}</strong>
-            <p>{repo.description}</p>
-          </li>
-        );
-      })}
-    </ul>
+    // <ul>
+    //   {repositories.map((repo) => {
+    //     return (
+    //       <li key={repo.full_name}>
+    //         <strong>{repo.full_name}</strong>
+    //         <p>{repo.description}</p>
+    //       </li>
+    //     );
+    //   })}
+    // </ul>
+    <h1>Olá</h1>
   );
 };
 
