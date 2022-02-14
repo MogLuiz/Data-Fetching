@@ -7,9 +7,14 @@ type Repository = {
 };
 
 const App: React.FC = () => {
-  const [repositories, setRepositories] = useState<Repository[]>([]);
   // -------------------------------------------------
-  // Render
+  // States
+  // -------------------------------------------------
+
+  const [repositories, setRepositories] = useState<Repository[]>([]);
+
+  // -------------------------------------------------
+  // Hooks
   // -------------------------------------------------
 
   useEffect(() => {
@@ -17,7 +22,22 @@ const App: React.FC = () => {
       .then((response) => response.json())
       .then((data) => setRepositories(data));
   }, []);
-  return <h1>Olá</h1>;
+
+  // -------------------------------------------------
+  // Render
+  // -------------------------------------------------
+  return (
+    <ul>
+      {repositories.map((repo) => {
+        return (
+          <li key={repo.full_name}>
+            <strong>{repo.full_name}</strong>
+            <p>{repo.description}</p>
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 
 export default App;
