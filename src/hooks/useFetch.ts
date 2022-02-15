@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 
 // Services
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-const useFetch = <T = unknown>(url: string) => {
+const useFetch = <T = unknown>(url: string, options?: AxiosRequestConfig) => {
   // -------------------------------------------------
   // States
   // -------------------------------------------------
@@ -19,7 +19,7 @@ const useFetch = <T = unknown>(url: string) => {
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url, options)
       .then((response) => setData(response.data))
       .catch((err) => setError(err))
       .finally(() => setIsFetching(false));
