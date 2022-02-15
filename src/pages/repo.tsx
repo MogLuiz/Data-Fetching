@@ -5,6 +5,11 @@ import { useParams } from "react-router-dom";
 // Query Client React Query
 import { queryClient } from "../services/queryClient";
 
+type Repository = {
+  full_name: string;
+  description: string;
+};
+
 const Repo: React.FC = () => {
   // -------------------------------------------------
   // Params
@@ -18,7 +23,20 @@ const Repo: React.FC = () => {
   // -------------------------------------------------
 
   const handleChangeRepositoryDescription = async () => {
-    await queryClient.invalidateQueries(["repos"]);
+    // Query Invalidate
+    // await queryClient.invalidateQueries(["repos"]);
+
+    const previousReposCache = queryClient.getQueryData<Repository[]>("repos");
+
+    if (previousReposCache) {
+      const nextReposCache = previousReposCache.map((repo) => {
+        if (repo.full_name === currentRepository)
+          return { ...repo, description: "Testando" };
+        return repo;
+      });
+
+      queryClient.setQueryData("repos", nextReposCache);
+    }
   };
 
   // -------------------------------------------------
