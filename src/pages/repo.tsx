@@ -5,7 +5,7 @@ const Repo: React.FC = () => {
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  return <div />;
+  return <h1>Hello World</h1>;
 };
 
 export default Repo;

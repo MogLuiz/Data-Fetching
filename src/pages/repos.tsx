@@ -2,7 +2,11 @@
 import React from "react";
 
 // Components
-import { RequestWithReactQuery } from "../components";
+import { RequestWithReactQuery, RequestWithoutReactQuery } from "../components";
+
+// RequestWithReactQuery --> Request using React-Query
+
+// RequestWithoutReactQuery --> Request using the custom Hook
 
 const Repos: React.FC = () => {
   // -------------------------------------------------

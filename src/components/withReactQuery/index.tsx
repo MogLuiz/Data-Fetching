@@ -1,6 +1,7 @@
 // Packages
 import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
 
 // React Query
 import { useQuery } from "react-query";
@@ -34,7 +35,7 @@ const WithReactQuery: React.FC = () => {
       {repositories?.map((repo) => {
         return (
           <li key={repo.full_name}>
-            <strong>{repo.full_name}</strong>
+            <Link to={`repo/${repo.full_name}`}>{repo.full_name}</Link>
             <p>{repo.description}</p>
           </li>
         );

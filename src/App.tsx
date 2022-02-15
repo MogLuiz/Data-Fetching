@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Repos />} />
-      <Route path="/repo" element={<Repo />} />
+      <Route path="/repo/*" element={<Repo />} />
     </Routes>
   );
 };
