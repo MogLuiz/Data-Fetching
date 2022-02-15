@@ -5,6 +5,9 @@ import React from "react";
 import { RequestWithReactQuery } from "../components";
 
 const Repos: React.FC = () => {
+  // -------------------------------------------------
+  // Render
+  // -------------------------------------------------
   return <RequestWithReactQuery />;
 };
 

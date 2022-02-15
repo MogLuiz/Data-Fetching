@@ -1,16 +1,11 @@
 // Packages
 import React from "react";
-import { Routes } from "react-router-dom";
 
-const App: React.FC = () => {
+const Repo: React.FC = () => {
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  return (
-    <Routes>
-      
-    </Routes>
-  );
+  return <div />;
 };
 
-export default App;
+export default Repo;
