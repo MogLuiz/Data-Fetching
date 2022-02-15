@@ -23,6 +23,9 @@ const WithReactQuery: React.FC = () => {
         "https://api.github.com/users/MogLuiz/repos"
       );
       return response.data;
+    },
+    {
+      staleTime: 1000 * 60, // 1 minute
     }
   );
 
