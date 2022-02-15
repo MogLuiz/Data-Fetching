@@ -1,5 +1,8 @@
 // Packages
-import React, { useEffect, useState } from "react";
+import React from "react";
+
+// Custom Hooks
+import useFetch from "./hooks/useFetch";
 
 type Repository = {
   full_name: string;
@@ -7,27 +10,28 @@ type Repository = {
 };
 
 const App: React.FC = () => {
+  // -------------------------------------------------
+  // Custom Hooks
+  // -------------------------------------------------
 
-
- 
-
-
+  const { data } = useFetch<Repository[]>(
+    "https://api.github.com/users/MogLuiz/repos"
+  );
 
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
   return (
-    // <ul>
-    //   {repositories.map((repo) => {
-    //     return (
-    //       <li key={repo.full_name}>
-    //         <strong>{repo.full_name}</strong>
-    //         <p>{repo.description}</p>
-    //       </li>
-    //     );
-    //   })}
-    // </ul>
-    <h1>Olá</h1>
+    <ul>
+      {data?.map((repo) => {
+        return (
+          <li key={repo.full_name}>
+            <strong>{repo.full_name}</strong>
+            <p>{repo.description}</p>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

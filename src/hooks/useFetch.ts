@@ -16,10 +16,13 @@ const useFetch = <T = unknown>(url: string) => {
   // -------------------------------------------------
 
   useEffect(() => {
-    axios
-      .get("https://api.github.com/users/MogLuiz/repos")
-      .then((response) => setData(response.data));
+    axios.get(url).then((response) => setData(response.data));
   }, []);
+
+  // -------------------------------------------------
+  // Hook Return
+  // -------------------------------------------------
+  return { data };
 };
 
 export default useFetch;
