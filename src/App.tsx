@@ -2,13 +2,13 @@
 import React from "react";
 
 // Components
-import WithoutReactQuery from "./components/withoutReactQuery";
+import { RequestWithReactQuery, RequestWithoutReactQuery } from "./components";
 
 const App: React.FC = () => {
   // -------------------------------------------------
   // Render
   // -------------------------------------------------
-  return <WithoutReactQuery />;
+  return <RequestWithoutReactQuery />;
 };
 
 export default App;
