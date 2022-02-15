@@ -16,7 +16,7 @@ const WithReactQuery: React.FC = () => {
   // -------------------------------------------------
 
   const { data: repositories, isFetching } = useQuery<Repository[]>(
-    "repos",
+    "repos", // Primeiro parâmetro é a chave do meu cache
     async () => {
       const response = await axios.get(
         "https://api.github.com/users/MogLuiz/repos"
