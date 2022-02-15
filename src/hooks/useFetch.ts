@@ -10,19 +10,23 @@ const useFetch = <T = unknown>(url: string) => {
   // -------------------------------------------------
 
   const [data, setData] = useState<T | null>(null);
+  const [isFetching, setIsFetching] = useState(true);
 
   // -------------------------------------------------
   // Hooks
   // -------------------------------------------------
 
   useEffect(() => {
-    axios.get(url).then((response) => setData(response.data));
+    axios
+      .get(url)
+      .then((response) => setData(response.data))
+      .finally(() => setIsFetching(false));
   }, []);
 
   // -------------------------------------------------
   // Hook Return
   // -------------------------------------------------
-  return { data };
+  return { data, isFetching };
 };
 
 export default useFetch;

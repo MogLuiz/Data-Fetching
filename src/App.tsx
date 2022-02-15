@@ -14,7 +14,7 @@ const App: React.FC = () => {
   // Custom Hooks
   // -------------------------------------------------
 
-  const { data } = useFetch<Repository[]>(
+  const { data: repositories, isFetching } = useFetch<Repository[]>(
     "https://api.github.com/users/MogLuiz/repos"
   );
 
@@ -23,7 +23,8 @@ const App: React.FC = () => {
   // -------------------------------------------------
   return (
     <ul>
-      {data?.map((repo) => {
+      { isFetching && <p>Loading...</p> }
+      {repositories?.map((repo) => {
         return (
           <li key={repo.full_name}>
             <strong>{repo.full_name}</strong>
